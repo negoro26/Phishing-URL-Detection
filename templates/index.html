@@ -4,84 +4,184 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="This website is develop for identify the safety of url.">
+    <meta name="description" content="Advanced phishing URL detection using machine learning to keep you safe online.">
     <meta name="keywords" content="phishing url,phishing,cyber security,machine learning,classifier,python">
     <meta name="author" content="VAIBHAV BICHAVE">
 
-    <!-- BootStrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link href="static/styles.css" rel="stylesheet">
-    <title>URL detection</title>
-    
+    <title>Phishing URL Detection - Stay Safe Online</title>
 </head>
 
 <body>
-    
-<div class=" container">
-    <div class="row">
-        <div class="form col-md" id="form1">
-            <h2>PHISHING URL DETECTION</h2>
-    
-            <br>
-            <form action="/" method ="post">
-                <input type="text" class="form__input" name ='url' id="url" placeholder="Enter URL" required="" />
-                <label for="url" class="form__label">URL</label>
-                <button class="button" role="button" >Check here</button>
-            </form>
-           
+    <div class="background-animation">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
     </div>
-    
-    <div class="col-md" id="form2">
-        
-        <br>
-        <h6 class = "right "><a href= {{ url }} target="_blank">{{ url }}</a></h6>
-           
-        <br>
-        <h3 id="prediction"></h3>
-        <button class="button2" id="button2" role="button" onclick="window.open('{{url}}')" target="_blank" >Still want to Continue</button>
-        <button class="button1" id="button1" role="button"  onclick="window.open('{{url}}')" target="_blank">Continue</button>
-    </div> 
-</div>
-<br>
-<p>©2021 VAIBHAV BICHAVE</p>
-</div>
 
-    <!-- JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 5L5 12.5V18.75C5 27.5 10.5 35.375 20 37.5C29.5 35.375 35 27.5 35 18.75V12.5L20 5Z" fill="url(#gradient)" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15 20L18.5 23.5L26 16" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="5" y1="5" x2="35" y2="37.5" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#3b82f6"/>
+                            <stop offset="1" stop-color="#1d4ed8"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>URL Shield</span>
+            </div>
+        </header>
 
-    
+        <main class="main-content">
+            <div class="intro-section">
+                <h1 class="title">Phishing URL Detection</h1>
+                <p class="subtitle">Protect yourself from malicious websites with AI-powered URL analysis</p>
+            </div>
+
+            <div class="card">
+                <form action="/" method="post" class="url-form" id="urlForm">
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <svg class="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                            </svg>
+                            <input
+                                type="url"
+                                class="url-input"
+                                name="url"
+                                id="url"
+                                placeholder="Enter a URL to analyze"
+                                required
+                                autocomplete="off"
+                            />
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-text">Analyze URL</span>
+                        <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+
+            <div class="result-section" id="resultSection" style="display: none;">
+                <div class="result-card" id="resultCard">
+                    <div class="result-header">
+                        <div class="result-icon" id="resultIcon"></div>
+                        <h2 class="result-title" id="resultTitle"></h2>
+                    </div>
+
+                    <div class="result-details">
+                        <div class="analyzed-url">
+                            <span class="label">Analyzed URL:</span>
+                            <a href="{{ url }}" target="_blank" rel="noopener noreferrer" class="url-link" id="analyzedUrl">{{ url }}</a>
+                        </div>
+
+                        <div class="safety-score">
+                            <div class="score-label">Safety Score</div>
+                            <div class="score-bar">
+                                <div class="score-fill" id="scoreFill"></div>
+                                <span class="score-text" id="scoreText"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="result-actions">
+                        <button class="action-btn safe-btn" id="safeBtn" style="display: none;" onclick="window.open('{{ url }}')" target="_blank">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            Continue to Site
+                        </button>
+                        <button class="action-btn danger-btn" id="dangerBtn" style="display: none;" onclick="window.open('{{ url }}')" target="_blank">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                <line x1="12" y1="9" x2="12" y2="13"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                            Proceed Anyway
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2021-2025 VAIBHAV BICHAVE. All rights reserved.</p>
+        </footer>
+    </div>
+
     <script>
-        
-            let x = '{{xx}}';
-            let num = x*100;
-            if (0<=x && x<0.50){
-                num = 100-num;
+        const resultSection = document.getElementById('resultSection');
+        const resultCard = document.getElementById('resultCard');
+        const resultIcon = document.getElementById('resultIcon');
+        const resultTitle = document.getElementById('resultTitle');
+        const scoreFill = document.getElementById('scoreFill');
+        const scoreText = document.getElementById('scoreText');
+        const safeBtn = document.getElementById('safeBtn');
+        const dangerBtn = document.getElementById('dangerBtn');
+        const analyzedUrl = document.getElementById('analyzedUrl');
+
+        let x = '{{ xx }}';
+
+        if (x !== '-1' && x !== '') {
+            let num = parseFloat(x) * 100;
+            if (0 <= x && x < 0.50) {
+                num = 100 - num;
             }
-            let txtx = num.toString();
-            if(x<=1 && x>=0.50){
-                var label = "Website is "+txtx +"% safe to use...";
-                document.getElementById("prediction").innerHTML = label;
-                document.getElementById("button1").style.display="block";
+
+            resultSection.style.display = 'block';
+
+            setTimeout(() => {
+                resultCard.classList.add('show');
+            }, 100);
+
+            if (x <= 1 && x >= 0.50) {
+                resultCard.classList.add('safe');
+                resultIcon.innerHTML = `
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                `;
+                resultTitle.textContent = 'Safe to Visit';
+                scoreText.textContent = num.toFixed(1) + '%';
+                scoreFill.style.width = num + '%';
+                scoreFill.style.background = 'linear-gradient(90deg, #10b981, #059669)';
+                safeBtn.style.display = 'flex';
+            } else if (0 <= x && x < 0.50) {
+                resultCard.classList.add('danger');
+                resultIcon.innerHTML = `
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                        <line x1="12" y1="9" x2="12" y2="13"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                `;
+                resultTitle.textContent = 'Potentially Dangerous';
+                scoreText.textContent = num.toFixed(1) + '% Risk';
+                scoreFill.style.width = num + '%';
+                scoreFill.style.background = 'linear-gradient(90deg, #ef4444, #dc2626)';
+                dangerBtn.style.display = 'flex';
             }
-            else if (0<=x && x<0.50){
-                var label = "Website is "+txtx +"% unsafe to use..."
-                document.getElementById("prediction").innerHTML = label ;
-                document.getElementById("button2").style.display="block";
-            }
-        
+        }
+
+        document.getElementById('urlForm').addEventListener('submit', function() {
+            const submitBtn = this.querySelector('.submit-btn');
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+        });
     </script>
-    
 </body>
-
 </html>
-
